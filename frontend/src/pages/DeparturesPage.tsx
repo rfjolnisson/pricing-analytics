@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useNavigate } from 'react-router-dom';
 import { PageLayout } from '../components/layout/PageLayout';
 import { DepartureGrid } from '../components/departures/DepartureGrid';
 import { Product, Departure } from '../types';
@@ -8,6 +8,7 @@ import { formatCurrency, formatPercent } from '../utils/formatters';
 
 export const DeparturesPage: React.FC = () => {
   const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
   const [products, setProducts] = useState<Product[]>([]);
   const [selectedProduct, setSelectedProduct] = useState<string>('');
   const [selectedSeason, setSelectedSeason] = useState<string>('');
@@ -201,7 +202,10 @@ export const DeparturesPage: React.FC = () => {
           </div>
         </div>
       ) : (
-        <DepartureGrid departures={departures} />
+        <DepartureGrid 
+          departures={departures}
+          onDepartureClick={(departure) => navigate(`/departure/${departure.id}`)}
+        />
       )}
     </PageLayout>
   );

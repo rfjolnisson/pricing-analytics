@@ -53,5 +53,7 @@ export const api = {
     const query = season ? `?season=${encodeURIComponent(season)}` : '';
     return fetchJSON<Departure[]>(`${API_BASE}/departures/product/${productId}${query}`);
   },
+
+  getDepartureById: (id: string) => fetchJSON<Departure>(`${API_BASE}/departures/${id}`),
 };
 

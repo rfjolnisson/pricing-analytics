@@ -6,6 +6,7 @@ import { ProductDetailPage } from './pages/ProductDetailPage';
 import { ComparisonPage } from './pages/ComparisonPage';
 import { ForecastingPage } from './pages/ForecastingPage';
 import { DeparturesPage } from './pages/DeparturesPage';
+import { DepartureDetailPage } from './pages/DepartureDetailPage';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Sidebar />
           <Routes>
             <Route path="/" element={<DeparturesPage />} />
+            <Route path="/departure/:departureId" element={<DepartureDetailPage />} />
             <Route path="/product/:productId" element={<ProductDetailPage />} />
             <Route path="/portfolio" element={<DashboardPage />} />
             <Route path="/comparison" element={<ComparisonPage />} />
