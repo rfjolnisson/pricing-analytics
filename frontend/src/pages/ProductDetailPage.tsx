@@ -4,7 +4,7 @@ import { PageLayout } from '../components/layout/PageLayout';
 import { Product, PriceVersion } from '../types';
 import { api } from '../utils/api';
 import { formatCurrency, formatPercent, formatDate, getMarginColor } from '../utils/formatters';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 export const ProductDetailPage: React.FC = () => {
   const { productId } = useParams<{ productId: string }>();

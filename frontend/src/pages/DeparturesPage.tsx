@@ -7,7 +7,7 @@ import { api } from '../utils/api';
 import { formatCurrency, formatPercent } from '../utils/formatters';
 
 export const DeparturesPage: React.FC = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const [products, setProducts] = useState<Product[]>([]);
   const [selectedProduct, setSelectedProduct] = useState<string>('');
   const [selectedSeason, setSelectedSeason] = useState<string>('');
@@ -60,8 +60,6 @@ export const DeparturesPage: React.FC = () => {
 
     fetchDepartures();
   }, [selectedProduct, selectedSeason]);
-
-  const product = products.find(p => p.id === selectedProduct);
 
   // Calculate aggregate metrics
   const totalCapacity = departures.reduce((sum, d) => sum + d.capacity, 0);
