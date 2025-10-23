@@ -43,7 +43,10 @@ export const products: Product[] = [
     targetMargin: 30.0,
     costBasis: 3240,
     imageUrl: '/images/patagonia.jpg',
-    lastUpdated: '2024-09-20'
+    lastUpdated: '2024-09-20',
+    typicalCapacity: 12,
+    minCapacity: 8,
+    maxCapacity: 14
   },
   {
     id: 'p003',

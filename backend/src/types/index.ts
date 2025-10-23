@@ -37,7 +37,7 @@ export interface Product {
   costBasis: number;
   imageUrl: string;
   lastUpdated: string;
-  typicalCapacity: number; // typical group size
+  typicalCapacity?: number; // typical group size
   minCapacity?: number;
   maxCapacity?: number;
 }
