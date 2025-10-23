@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    container_name: pricing-intelligence-backend
+    ports:
+      - "3013:3013"
+    environment:
+      - PORT=3013
+      - NODE_ENV=development
+    volumes:
+      - ./backend/src:/app/src
+      - ./backend/data:/app/data
+    networks:
+      - pricing-network
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    container_name: pricing-intelligence-frontend
+    ports:
+      - "5175:5175"
+    environment:
+      - VITE_API_URL=http://localhost:3013
+    volumes:
+      - ./frontend/src:/app/src
+      - ./frontend/public:/app/public
+    depends_on:
+      - backend
+    networks:
+      - pricing-network
+    restart: unless-stopped
+
+networks:
+  pricing-network:
+    driver: bridge
+
